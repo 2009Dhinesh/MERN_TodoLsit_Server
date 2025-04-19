@@ -14,13 +14,10 @@ app.use(cors());
 
 const port =3002;
 
-// new array 
-
-// var todos = [];
 
 // connection mongo DB
 
-mongoose.connect('mongodb://localhost:27017/Todo').then(()=>console.log("DB connected..."));
+mongoose.connect('mongodb+srv://dhinesh:dhinesh@cluster0.z09pv.mongodb.net/Todo').then(()=>console.log("DB connected..."));
 
 // create schema
 
@@ -39,13 +36,6 @@ const todoModel = mongoose.model('todo' , todoSchema)
 app.post('/todos' , async (req , res) => {
     const { title , description } = req.body;
 
-    // const newTodo ={
-    //     id : todos.length + 1 ,
-    //     title ,
-    //     description
-    // }
-    // todos.push(newTodo);
-    // console.log(todos);
 
     try {
         const newTodo = new todoModel({
